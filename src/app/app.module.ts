@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
-import { Appartament } from './pages/apartmanet/Appartament';
+import { Apartment } from './pages/apartment/Apartment';
 import { AppRoutingModule } from './routes/app-routing.module';
 
 @NgModule({
@@ -11,7 +11,7 @@ import { AppRoutingModule } from './routes/app-routing.module';
     AppComponent,
     Header,
     Footer,
-    Appartament,
+    Apartment,
   ],
   imports: [
     BrowserModule,
