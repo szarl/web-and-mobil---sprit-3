@@ -1,0 +1,8 @@
+<div class="apartments-container">
+  <div class="apartments-images">
+    <a *ngFor="let image of images" [routerLink]="['/apartment']">
+      <img src="{{ image.path }}" alt="{{ image.alt }}">
+    </a>
+  </div>
+  <img class="arrow-logo" src="assets/logos/arrow.png" alt="Arrow Logo">
+</div>

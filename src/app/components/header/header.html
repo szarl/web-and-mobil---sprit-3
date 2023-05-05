@@ -1,20 +1,25 @@
 <div>
-    <div class="header-content">
-        <img src="../assets/logos/erasmus-logo.png" alt="Erasmus+ Logo" />
+  <div class="header-content">
+    <img src="../assets/logos/erasmus-logo.png" alt="Erasmus+ Logo" />
+    <a *ngIf="!authService.loggedIn$.value" routerLink="/user-login"  class="login-link">Log in</a>
+    <a *ngIf="authService.loggedIn$.value" (click)="authService.logout()" class="login-link">Log out</a>
+  </div>
+  <div class="menu">
+    <div class="slogan">
+      <h1>Explora el mundo, expande tu mente - Erasmus!</h1>
     </div>
-    <div class="menu">
-        <div class="slogan">
-        <h1>Explora el mundo, expande tu mente - Erasmus!</h1>
-        </div>
-        <div class="menu-icon">
+    <div class="dropdown" *ngIf="authService.loggedIn$.value">
+      <button class="menu-icon">
         <img src="../assets/logos/menu-icon.png" alt="Menu Icon" />
-        </div>
-        <nav class="nav-menu">
-        <ul>
-            <li><a href="#">Students</a></li>
-            <li><a href="#">Apartments</a></li>
-            <li><a href="#">Country</a></li>
-        </ul>
-        </nav>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="/">Home</a>
+        <a routerLink="/student">Student</a>
+        <a routerLink="/universities">Universities</a>
+        <a routerLink="/apartments">Apartments</a>
+        <a routerLink="/country">Country</a>
+      </div>
     </div>
+  </div>
+  <router-outlet></router-outlet>
 </div>
