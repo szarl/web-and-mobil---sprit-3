@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'student', component: StudentComponent },
   { path: 'universities', component: UniversitiesComponent },
   { path: 'apartments', component: ApartmentsComponent },
-  { path: 'apartment', component: ApartmentComponent },
+
+  { path: 'apartment/:id', component: ApartmentComponent },
   { path: 'country', component: Country },
   { path: 'user-login', component: UserLoginComponent },
   { path: 'homepage', redirectTo: '', pathMatch: 'full' },
