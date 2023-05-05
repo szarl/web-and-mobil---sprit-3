@@ -1,15 +1,12 @@
-<div class="container">
-    <div class="image-wrapper">
-      <img src="assets/apartments/apartment-1.jpg" alt="Image description"/>
-      <div class="logo-wrapper">
-        <img src="assets/logos/arrow.png" alt="Logo description" />
-      </div>
-    </div>
-    <div class="address">
-      <p>CaLLe Presidente Alvear</p>
-    </div>
-    <div class="contact">
-      <img src="assets/logos/contact-logo.png" alt="WhatsApp logo" />
-      <p>+389 078 317 322</p>
-    </div>
+<div class="container" *ngIf="apartment$ | async as apartment">
+  <div class="image-wrapper">
+    <img [src]="apartment.image" alt="Apartment Image" />
+  </div>
+  <div class="address">
+    <p>{{ apartment.address }}</p>
+  </div>
+  <div class="contact">
+    <img src="assets/logos/contact-logo.png" alt="WhatsApp logo" />
+    <p>{{ apartment.phoneNumber }}</p>
+  </div>
 </div>

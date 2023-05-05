@@ -254,8 +254,8 @@ button[type="submit"] img {
 }
 
 .pagination img {
-  width: 20px;
-  height: 20px;
+  // width: 20px;
+  // height: 20px;
   margin-left: 5px;
 }
 
@@ -278,11 +278,18 @@ button[type="submit"] img {
 }
 
 .university img {
-  width: 40%;
-  height: 150px;
+  width: 80%;
+  height: 200px;
   margin-bottom: 10px;
 }
-
+.arrow-logo-apartment {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.arrow-logo-apartment-margin {
+  margin-top: 4px;
+}
 .university-info {
   display: flex;
   align-items: center;

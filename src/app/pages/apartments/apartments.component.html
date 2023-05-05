@@ -1,8 +1,25 @@
 <div class="apartments-container">
   <div class="apartments-images">
-    <a *ngFor="let image of images" [routerLink]="['/apartment']">
-      <img src="{{ image.path }}" alt="{{ image.alt }}">
+    <a
+      *ngFor="let apartment of displayedApartments"
+      [routerLink]="['/apartment', apartment.key]"
+    >
+      <img [src]="apartment.image" [alt]="apartment.address" />
     </a>
   </div>
-  <img class="arrow-logo" src="assets/logos/arrow.png" alt="Arrow Logo">
+</div>
+<div class="pagination">
+  <img
+    class="arrow-logo-apartment arrow-logo-apartment-margin"
+    src="../assets/logos/arrow - Copy.png"
+    (click)="changePage(currentPage - 1)"
+    alt="Image description"
+  />
+
+  <img
+    class="arrow-logo-apartment"
+    src="../assets/logos/arrow.png"
+    (click)="changePage(currentPage + 1)"
+    alt="Image description"
+  />
 </div>
