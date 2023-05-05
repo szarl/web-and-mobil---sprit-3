@@ -1,0 +1,29 @@
+<body>
+  <div class="logo-container">
+    <i class="fas fa-user-circle fa-5x"></i>
+  </div>
+  <div class="form-container">
+    <h2>User Login</h2>
+    <form (submit)="onSubmit()" method="POST">
+      <label for="username" class="form-label">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="form-input"
+        required
+      />
+
+      <label for="password" class="form-label">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-input"
+        required
+      />
+
+      <button type="submit" class="form-submit" id="login">Login</button>
+    </form>
+  </div>
+</body>
