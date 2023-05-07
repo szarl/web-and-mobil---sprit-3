@@ -1,14 +1,39 @@
 <div>
   <div class="search-bar">
-    <input type="text" placeholder="Search..." />
-    <button type="submit">
-      <img src="assets/country-imgs/search-logo.png" alt="Seach bar logo" />
+    <input
+      type="text"
+      placeholder="Search..."
+      [(ngModel)]="searchInput"
+      (keyup.enter)="searchCountry()"
+    />
+    <button type="submit" (click)="searchCountry()">
+      <img src="assets/country-imgs/search-logo.png" alt="Search bar logo" />
     </button>
   </div>
   <div class="countries">
-    <img src="assets/country-imgs/countries.png" />
+    <div class="country-grid">
+      <div *ngFor="let country of displayedCountries">
+        <img
+          class="country-imgs-css"
+          [src]="country.image"
+          alt="{{ country.name }}"
+        />
+      </div>
+    </div>
     <div class="pagination">
-      <p>1<img src="assets/logos/arrow.png" alt="Seach bar logo" /></p>
+      <button
+        (click)="changePage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        Previous
+      </button>
+      <p>{{ currentPage }}</p>
+      <button
+        (click)="changePage(currentPage + 1)"
+        [disabled]="displayedCountries.length < pageSize"
+      >
+        Next
+      </button>
     </div>
   </div>
 </div>

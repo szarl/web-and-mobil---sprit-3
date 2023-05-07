@@ -1,48 +1,44 @@
-
-    <main>
-      <div class="search-bar">
-        <input type="text" placeholder="Search..." />
-        <button type="submit">
-          <img src="../assets/country-imgs/search-logo.png" alt="Seach bar logo" />
-        </button>
-      </div>
-      <div>
-        <div class="university-container">
-          <div class="university">
-            <img src="../assets/universities/uni1.jpg" alt="University" />
-            <div class="university-info">
-              <img src="../assets/universities/location-logo.png" alt="Location logo" />
-              <p>
-                C. Juan de Quesada, 30, 35001 Las Palmas de Gran Canaria, Las
-                Palmas
-              </p>
-            </div>
-          </div>
-          <div class="university">
-            <img src="../assets/universities/logo.jpg" alt="University" />
-            <div class="university-info">
-              <img src="../assets/universities/location-logo.png" alt="Location logo" />
-              <p>Plaça Cívica, 08193 Bellaterra, Barcelona</p>
-            </div>
-          </div>
-          <div class="university">
-            <img src="../assets/universities/uni3.png" alt="University" />
-            <div class="university-info">
-              <img src="../assets/universities/location-logo.png" alt="Location logo" />
-              <p>Slomškov trg 15</p>
-            </div>
-          </div>
-          <div class="university">
-            <img src="../assets/universities/uni3.png" alt="University" />
-            <div class="university-info">
-              <img src="../assets/universities/location-logo.png" alt="Location logo" />
-              <p>Plaça Cívica, 08193 Bellaterra, Barcelona</p>
-            </div>
-          </div>
-        </div>
-        <div class="pagination">
-          <p>1<img src="../assets/logos/arrow.png" alt="Seach bar logo" /></p>
+<main>
+  <div class="search-bar">
+    <input
+      [(ngModel)]="searchInput"
+      (ngModelChange)="onSearchChange()"
+      type="text"
+      placeholder="Search..."
+    />
+    <button type="submit">
+      <img src="../assets/country-imgs/search-logo.png" alt="Seach bar logo" />
+    </button>
+  </div>
+  <div>
+    <div class="university-container">
+      <div *ngFor="let university of displayedUniversities" class="university">
+        <img [src]="'assets/' + university.image" alt="University" />
+        <div class="university-info">
+          <img
+            src="../assets/universities/location-logo.png"
+            alt="Location logo"
+          />
+          <p>{{ university.address }}</p>
         </div>
       </div>
-    </main>
-  
+    </div>
+    <div class="pagination">
+      <p>
+        <img
+          (click)="previousPage()"
+          src="../assets/logos/arrow - Copy.png"
+          alt="Seach bar logo"
+          class="arrow-logo-apartment arrow-logo-apartment-margin"
+        />
+        {{ currentPage
+        }}<img
+          (click)="nextPage()"
+          src="../assets/logos/arrow.png"
+          alt="Seach bar logo"
+          class="arrow-logo-apartment"
+        />
+      </p>
+    </div>
+  </div>
+</main>

@@ -13,8 +13,12 @@ import { MenuComponent } from './menu/menu.component';
 import { ApartmentComponent } from './pages/apartment/apartment.component';
 import { Country } from './pages/country/Country';
 import { ApartmentsComponent } from './pages/apartments/apartments.component';
+import { environment } from '../environment/environment';
+import { FormsModule } from '@angular/forms';
 
-
+// Import AngularFire modules
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [
@@ -34,8 +38,11 @@ import { ApartmentsComponent } from './pages/apartments/apartments.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), // Add this line
+    AngularFireDatabaseModule, // Add this line
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

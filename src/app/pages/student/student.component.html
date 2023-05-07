@@ -1,45 +1,38 @@
-
-    <main class="main-content">
-      <div class="container">
-        <div class="student-img">
-          <img
-            class="arrow-logo"
-            src="../assets/logos/arrow - Copy.png"
-            alt="Image description"
-          />
-          <img
-            class="student-pic"
-            src="../assets/students/student_anja.jpg"
-            alt="Image description"
-          />
-          <img
-            class="arrow-logo"
-            src="../assets/logos/arrow.png"
-            alt="Image description"
-          />
-        </div>
-        <div class="student-info">
-          <div class="student-origin">
-            <h2>Sarah Kuzev</h2>
-            <img
-              class="student-country"
-              src="../assets/flags/uk.png"
-              alt="Image description"
-            />
-          </div>
-          <p class="student-description">
-            Sarah es una estudiante brillante y aventurera del Reino Unido que
-            recientemente se embarcó en un emocionante viaje a Las Palmas como
-            parte de su programa Erasmus. Siendo ella misma una estudiante,
-            comprende los desafíos que conlleva estudiar en el extranjero y
-            siempre está dispuesta a ayudar a sus compañeros de estudios.
-          </p>
-        </div>
-        <div class="contact">
-          <img src="../assets/logos/contact-logo.png" alt="WhatsApp logo" />
-          <p>+389 078 317 322</p>
-        </div>
+<main class="main-content" *ngIf="students.length > 0; else loading">
+  <div class="container">
+    <div class="student-img">
+      <img
+        class="arrow-logo"
+        src="../assets/logos/arrow - Copy.png"
+        (click)="previousStudent()"
+        alt="Image description"
+      />
+      <img
+        class="student-pic"
+        [src]="students[currentStudentIndex].image"
+        alt="Student Image"
+      />
+      <img
+        class="arrow-logo"
+        src="../assets/logos/arrow.png"
+        (click)="nextStudent()"
+        alt="Image description"
+      />
+    </div>
+    <div class="student-info">
+      <div class="student-origin">
+        <h2>{{ students[currentStudentIndex].name }}</h2>
       </div>
-    </main>
- 
-
+      <p class="student-description">
+        {{ students[currentStudentIndex].description }}
+      </p>
+    </div>
+    <div class="contact">
+      <img src="../assets/logos/contact-logo.png" alt="WhatsApp logo" />
+      <p>{{ students[currentStudentIndex].phoneNumber }}</p>
+    </div>
+  </div>
+</main>
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
