@@ -5,6 +5,11 @@
 /tmp
 /out-tsc
 /bazel-out
+/platforms
+/plugins
+/resources
+/.angular
+/www
 
 # Node
 /node_modules

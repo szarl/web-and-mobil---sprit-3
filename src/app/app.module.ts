@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 // Import AngularFire modules
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Add this line
     AngularFireDatabaseModule, // Add this line
-    FormsModule,
+    FormsModule, IonicModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
